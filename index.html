@@ -269,6 +269,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://luuck.github.io/2018/01/31/网页播放视频项目总结-flvplayer-swf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="luuck">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lu'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/31/网页播放视频项目总结-flvplayer-swf/" itemprop="url">网页播放视频项目总结-flvplayer.swf</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-31T19:24:46+08:00">
+                2018-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>没有简单的项目，只有不用心的思考。<br>沉迷于思考，然后不断去验证，加以总结，才能得以收获。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><pre><code>临近春节,公司品牌部提出了一个需求，制作一个视频播放宣传页，我是负责pc这块的制作。拿到这个项目需求，在设计还没有出稿之前我先梳理了下这个项目的开发难点和重点。
+
+难点？
+
+视频制作是头一回接触，并且还要兼容到ie6，7（公司的所有项目都必须兼容到ie6，7），我该如何下手？
+
+重点？
+
+从需求方描述的文档上来看，其实是一个比较简单的展示页，不涉及任何与后端交互的东西，纯前端的一个页面，开发的功能点也只是包含三部分内容：视频播放、新年祝福语滚动播报、公司旗下移动产品的二维码纯展示。那么可见重点也就是视频的播放功能了。
+</code></pre><h2 id="视频播放功能开发"><a href="#视频播放功能开发" class="headerlink" title="视频播放功能开发"></a>视频播放功能开发</h2><p>初步考虑开发的几种方案:</p>
+<ul>
+<li>使用HTML5的video视频标签开发，使用起来确实是挺方便，but，各个浏览器呈现出的样式一点也不统一（各大浏览器厂商真的是风格各异），需要自己手动开发样式吗？问号脸（貌似开发成本太高了，工期不够用）。pass</li>
+<li>使用第三方视频播放器组件，例如：腾讯视频的播放器组件，but，视频播放会自动加载广告，什么鬼（又要骗我买VIP）。pass</li>
+<li>使用flashPlayer播放器。就是使用他了（严肃认真脸，内心的小九九，之前公司有和37合作一个联运活动，阅读他们代码的时候，看到他们使用了一个flvplayer.swf播放器，并且可以兼容到ie6，最终呈现到所有的浏览器外形真的是一毛一样啊，还好记录下来，此时有了用武之地）。</li>
+</ul>
+<h2 id="flashPlayer播放器的使用"><a href="#flashPlayer播放器的使用" class="headerlink" title="flashPlayer播放器的使用"></a>flashPlayer播放器的使用</h2><p>   先贴上代码<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">	</span><br></pre></td></tr></table></figure></p>
+<pre><code>分析
+需要使用一个flvplayer.swf文件
+
+首先说下flv这个视频文件格式，全称 flash Video。是flash播放器所支持的视频文件格式。
+</code></pre><h2 id="填坑来了"><a href="#填坑来了" class="headerlink" title="填坑来了"></a>填坑来了</h2><p>   测试提了个bug：bug描述如下</p>
+<pre><code>看到这个bug，第一想法是不对呀，浏览器会自动检测并主动触发提示的呀，我不信！然而自己测试验证下来，目前就新版的firefox没有这个自动检测的功能，我想，肯定需要扩展这个adobe flash player组件，真是打脸啊，
+</code></pre><p>   新版的火狐浏览器（此时是）没有自动检测是否有安装支持flash播放的插件，并且扩展的组件库里边已经搜索不到任何关于flash的东西了，那么只有用户去主动下载安装火狐版的adobe flash player才可以触发提示用户手动打开flash播放。（送他一首薛之谦的【你还要我怎么样】）</p>
+<pre><code>想了下，那么这时代码我需要考虑到一点，先判断当前浏览器存在的flash播放器的版本是多少，存不存在，不存在则引导用户去下载安装，如果存在，但是版本过低，也需要引导用户去升级安装。
+
+来，截图看下效果：
+
+实现的代码片段是：
+</code></pre><p>   额外值得注意的一点是：chrome 、 Firefox、IE 这三巨头浏览器所要支持的adobe flash player会有所不同，都有自己支持的版本。所以对应的浏览器打开使用时，你会看到有三个进程的存在。如下图：</p>
+<h2 id="fnflv封装成一个方法，说不定下次还要使用呢。去到github查看如何使用"><a href="#fnflv封装成一个方法，说不定下次还要使用呢。去到github查看如何使用" class="headerlink" title="fnflv封装成一个方法，说不定下次还要使用呢。去到github查看如何使用"></a>fnflv封装成一个方法，说不定下次还要使用呢。去到github查看如何使用</h2><h2 id="最后的最后，给大家推荐一个小工具：格式化工厂"><a href="#最后的最后，给大家推荐一个小工具：格式化工厂" class="headerlink" title="最后的最后，给大家推荐一个小工具：格式化工厂"></a>最后的最后，给大家推荐一个小工具：格式化工厂</h2><p>   需求方提供的视频资源是mp4格式（大概有300M的样子），这时候需要格式化工厂转换下，转成flv的格式，第一次转换，全黑，百度了下格式，原来没有选择正确，调整后，第二次转换，什么，转换后有100M，好像太大了点，后面调整了下输出配置的信息，由高清调整为了中清的样子，视频整体压缩到了60M的样子，这才变成最终我所需要的样子（完结）</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><pre><code>多积累所见所闻，多动手动脑思考总结。
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://luuck.github.io/2018/01/30/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -384,6 +535,155 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://luuck.github.io/2017/01/10/让Windows用户快速上手Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="luuck">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lu'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/01/10/让Windows用户快速上手Git/" itemprop="url">让Windows用户快速上手Git</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-10T00:36:05+08:00">
+                2017-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（命令操作实在不符合Windows用户的用户习惯）。</p>
+<p>那么我们该如何使用该工具呢？下面一一介绍，介绍前先提一下Git的几个比较重要的分支master、hotfix、develop、feature，这也是我们经常会用到的分支目录。</p>
+<ul>
+<li>master：主分支</li>
+<li>hotfix：紧急任务分支 base on master</li>
+<li>develop：开发分支 base on master</li>
+<li>feature：新功能分支 base on develop</li>
+<li>bug：bug修复分支 base on develop</li>
+</ul>
+<p>有了这些基本的分支结构，当我们在项目开发的过程中，我们就能更加清晰的开发每个版本，每个版本又能不断新增功能，修复bug。</p>
+<h3 id="如何使用TortoiseGit工具"><a href="#如何使用TortoiseGit工具" class="headerlink" title="如何使用TortoiseGit工具"></a>如何使用TortoiseGit工具</h3><ol>
+<li>clone</li>
+</ol>
+<h3 id="使用TortoiseGit工具"><a href="#使用TortoiseGit工具" class="headerlink" title="使用TortoiseGit工具"></a>使用TortoiseGit工具</h3><ul>
+<li><p>点击右键选择TortoiseGit，选择Create Branch…，在Branch框中填写新分支的名称（若选中”switch to new branch”则直接转到新分支上，省略step2），点击OK按钮；</p>
+</li>
+<li><p>step2通过“Switch/Checkout”切换到新创建的分支上，点击OK。</p>
+</li>
+<li><p>在新分支下执行PUSH操作，在对话框中保持远程分支为空白，点击OK，则将在远程创建了新的分支（在PUSH的时候远程服务器发现远程没有该分支，此时会自动创建一个和本地分支名称一样的分支，并将本地分支的内容上传到该分支）。</p>
+</li>
+<li><p>其他成员切换该新分支：首先进行pull操作， 然后进行切换分支（如step2）。</p>
+</li>
+<li><p>分区合并：进行分支合并之前我们需要明确哪个分支将要合并到哪个分支，首先通过“Switch/CheckOut”切换到主干分支（如develop分支）,然后通过“Merge”继进行合并操作，在对话框中选择需要合并的分支。分支合并成功后，我们即可以通过Commit与PUSH操作将合并上传到中心服务器</p>
+</li>
+</ul>
+<ul>
+<li>删除分支：当我们已将新分支合并到主分支后，或者放弃该分支的时候，可以对该分支进行删除操作。首先通过“CheckOut/Switch”打开对话框，点击Switch to区域中Branch条目后面的更多按钮，打开分支列表对话框，右键点击要删除的分支，选择delete branch进行删除。</li>
+</ul>
+<p><strong>==注意==</strong>：在删除远程分支的时候，本地分支并不会删除，这也说明了本地分支与远程分支并无从属关系</p>
+<h6 id="更多资源"><a href="#更多资源" class="headerlink" title="更多资源"></a>更多资源</h6><p>git与svn对比</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -437,7 +737,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -445,6 +745,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
