@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/mergetomaster.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/deletbranch.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/delbranch.jpg">
-<meta property="og:updated_time" content="2018-02-03T02:50:08.000Z">
+<meta property="og:updated_time" content="2018-02-03T02:52:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="让Windows用户快速上手Git">
 <meta name="twitter:description" content="背景喜讯！！公司的版本控制终于由svn转到了git，刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（命令操作实在不符合Windows用户的用户习惯）。">
@@ -350,7 +350,7 @@
 
       
         <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>喜讯！！公司的版本控制终于由svn转到了git，刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（命令操作实在不符合Windows用户的用户习惯）。<a id="more"></a></p>
-<h3 id="分布式如何理解？"><a href="#分布式如何理解？" class="headerlink" title="分布式如何理解？"></a>分布式如何理解？</h3><p>举个场景：每个开发人员都有一个本地仓库，即使没有网络也可以提交，查看历史版本记录，创建项目分支等常见操作，<br>等下次网络链接的时候在推送到服务端，总结为一句话就是：git可以不依赖网络对分支和合并等进行操作。</p>
+<h3 id="分布式如何理解？"><a href="#分布式如何理解？" class="headerlink" title="分布式如何理解？"></a>分布式如何理解？</h3><p>举个场景：每个开发人员都有一个本地仓库，即使没有网络也可以提交，查看历史版本记录，创建项目分支等常见操作，等下次网络链接的时候在推送到服务端。<br>总结为一句话就是：git可以不依赖网络对分支和合并等进行操作。</p>
 <h3 id="git常用的分支目录"><a href="#git常用的分支目录" class="headerlink" title="git常用的分支目录"></a>git常用的分支目录</h3><p>git的几个比较重要的分支master、hotfix、develop、feature，这也是我们经常会用到的分支目录。</p>
 <ul>
 <li>master：主分支</li>
@@ -363,7 +363,7 @@
 <p><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/git.jpg" alt=""></p>
 <h3 id="如何使用TortoiseGit工具？"><a href="#如何使用TortoiseGit工具？" class="headerlink" title="如何使用TortoiseGit工具？"></a>如何使用TortoiseGit工具？</h3><h4 id="1-clone"><a href="#1-clone" class="headerlink" title="1.clone"></a>1.clone</h4><p>点击右键选择TortoiseGit，选择Git clone</p>
 <h4 id="2-create-branch"><a href="#2-create-branch" class="headerlink" title="2.create branch"></a>2.create branch</h4><p>点击右键选择TortoiseGit，选择Create Branch…，在Branch框中填写新分支的名称（若选中”switch to new branch”则直接转到新分支上，省略step3），点击OK按钮；<br><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/createbranch.jpg" alt=""><br><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/create.jpg" alt=""></p>
-<p><strong>==注意==</strong>：在你切换到新分支上会出现一个error，提示“fatal：Not a valid object name:’master’.”OMG~，原来是master分支需要有一次提交，才可以创建新分支。<br>当然你已经从远程服务器上clone下来的repo，已经是一个真正的master分支，所以不会报这个error。</p>
+<p><strong>==注意==</strong>：在你切换到新分支上会出现一个error，提示“fatal：Not a valid object name:’master’.”OMG~，原来是master分支需要有一次提交，才可以创建新分支。当然你已经从远程服务器上clone下来的repo，已经是一个真正的master分支，所以不会报这个error。</p>
 <p>3.通过“Switch/Checkout”切换到新创建的分支上，点击OK<br><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/switchGit.jpg" alt=""></p>
 <h4 id="4-merge-branch"><a href="#4-merge-branch" class="headerlink" title="4.merge branch"></a>4.merge branch</h4><p>进行分支合并之前我们需要明确哪个分支将要合并到哪个分支，首先通过“Switch/CheckOut”切换到主干分支（如develop分支）,然后通过“Merge”继进行合并操作，在对话框中选择需要合并的分支。分支合并成功后，我们即可以通过Commit与PUSH操作将合并上传到中心服务器<br><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/mergebranch.jpg" alt=""><br><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/mergetomaster.jpg" alt=""></p>
 <h4 id="5-delete-branch"><a href="#5-delete-branch" class="headerlink" title="5.delete branch"></a>5.delete branch</h4><p>删除分支前先合并分支到主分支上<br><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/deletbranch.jpg" alt=""><br><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/delbranch.jpg" alt=""></p>
@@ -422,14 +422,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/02/01/hello-world/" rel="next" title="hello-word">
+                <i class="fa fa-chevron-left"></i> hello-word
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/30/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/31/网页播放视频项目总结-flvplayer-swf/" rel="prev" title="网页播放视频项目总结-flvplayer.swf">
+                网页播放视频项目总结-flvplayer.swf <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -537,7 +541,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
