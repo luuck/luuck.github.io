@@ -88,7 +88,7 @@
 <meta property="og:description" content="背景临近春节,公司品牌部提出了一个需求，制作一个视频播放宣传页，我是负责pc这块的制作。拿到这个项目需求，在设计还没有出稿之前我先梳理了下这个项目的开发难点和重点。难点？视频制作是头一回接触，并且还要兼容到ie6，7（公司的所有项目都必须兼容到ie6，7），我该如何下手？重点？从需求方描述的文档上来看，其实是一个比较简单的展示页，不涉及任何与后端交互的东西，纯前端的一个页面，开发的功能点也只是包含">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/flash/flash-process.jpg">
-<meta property="og:updated_time" content="2018-02-03T13:24:11.000Z">
+<meta property="og:updated_time" content="2018-02-03T13:26:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网页播放视频项目总结-flvplayer.swf">
 <meta name="twitter:description" content="背景临近春节,公司品牌部提出了一个需求，制作一个视频播放宣传页，我是负责pc这块的制作。拿到这个项目需求，在设计还没有出稿之前我先梳理了下这个项目的开发难点和重点。难点？视频制作是头一回接触，并且还要兼容到ie6，7（公司的所有项目都必须兼容到ie6，7），我该如何下手？重点？从需求方描述的文档上来看，其实是一个比较简单的展示页，不涉及任何与后端交互的东西，纯前端的一个页面，开发的功能点也只是包含">
@@ -414,8 +414,9 @@
 </code></pre><h2 id="文末彩蛋福利"><a href="#文末彩蛋福利" class="headerlink" title="文末彩蛋福利"></a>文末彩蛋福利</h2><p>推荐一个好用的工具：<strong>格式化工厂</strong><br>需求方提供的视频资源是mp4格式（大概有300M的样子），这时候需要格式化工厂转换下，转成flv的格式，第一次转换，代码运行时是全黑的状态且文件的大小在100M左右，百度了下，原来是没有选择正确的格式，经调整后，对输出配置的信息做了更改：</p>
 <ul>
 <li>由高清调整为了中清的样子，视频整体压缩到了60M的样子</li>
-<li>视频编码选择H264／AVC编码，解决了黑屏的情况<br><a href="https://zhidao.baidu.com/question/203295855543773325.html" target="_blank" rel="noopener">怎么把mp4视频转换成flv格式的视频，戳一戳这里</a></li>
+<li>视频编码选择H264／AVC编码，解决了黑屏的情况</li>
 </ul>
+<p><a href="https://zhidao.baidu.com/question/203295855543773325.html" target="_blank" rel="noopener">怎么把mp4视频转换成flv格式的视频，戳一戳这里</a></p>
 
       
     </div>
