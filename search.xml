@@ -3,7 +3,10 @@
   <entry>
     <title><![CDATA[网页播放视频项目总结-flvplayer.swf]]></title>
     <url>%2F2018%2F01%2F31%2F%E7%BD%91%E9%A1%B5%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93-flvplayer-swf%2F</url>
-    <content type="text"><![CDATA[没有简单的项目，只有不用心的思考。沉迷于思考，然后不断去验证，加以总结，才能得以收获。 背景临近春节,公司品牌部提出了一个需求，制作一个视频播放宣传页，我是负责pc这块的制作。拿到这个项目需求，在设计还没有出稿之前我先梳理了下这个项目的开发难点和重点。难点？视频制作是头一回接触，并且还要兼容到ie6，7（公司的所有项目都必须兼容到ie6，7），我该如何下手？重点？从需求方描述的文档上来看，其实是一个比较简单的展示页，不涉及任何与后端交互的东西，纯前端的一个页面，开发的功能点也只是包含三部分内容：视频播放、新年祝福语滚动播报、公司旗下移动产品的二维码纯展示。那么可见重点也就是视频的播放功能了。 视频播放功能开发初步考虑开发的几种方案: 使用HTML5的video视频标签开发，使用起来确实是挺方便，but，各个浏览器呈现出的样式一点也不统一（各大浏览器厂商真的是风格各异），需要自己手动开发样式吗？问号脸（貌似开发成本太高了，工期不够用）。pass 使用第三方视频播放器组件，例如：腾讯视频的播放器组件，but，视频播放会自动加载广告，什么鬼（又要骗我买VIP）。pass 使用flashPlayer播放器，就是使用他了（严肃认真脸，内心的小九九，之前公司有和37合作一个联运活动，阅读他们代码的时候，看到他们使用了一个flvplayer.swf播放器，并且可以兼容到ie6，最终呈现到所有的浏览器外形真的是一毛一样啊，还好记录下来，此时有了用武之地，顺便透露下flash将于2020停止更新）。 flashPlayer播放器的使用 先贴上代码 1 分析需要使用一个flvplayer.swf文件 首先说下flv这个视频文件格式，全称 flash Video。是flash播放器所支持的视频文件格式。 参数使用规则，这位同学写的很清楚[http://blog.csdn.net/joyhen/article/details/23001487] 填坑来了 测试提了个bug：bug描述如下 看到这个bug，第一想法是不对呀，浏览器会自动检测并主动触发提示的呀，我不信！然而自己测试验证下来，目前就新版的firefox没有这个自动检测的功能，我想，肯定需要扩展这个adobe flash player组件，真是打脸啊， 新版的火狐浏览器（此时是）没有自动检测是否有安装支持flash播放的插件，并且扩展的组件库里边已经搜索不到任何关于flash的东西了，那么只有用户去主动下载安装火狐版的adobe flash player才可以触发提示用户手动打开flash播放。（送他一首薛之谦的【你还要我怎么样】） 想了下，那么这时代码我需要考虑到一点，先判断当前浏览器存在的flash播放器的版本是多少，存不存在，不存在则引导用户去下载安装，如果存在，但是版本过低，也需要引导用户去升级安装。 来，截图看下效果： 实现的代码片段是： 值得注意的一点是：chrome 、 Firefox、IE 这三巨头浏览器所要支持的adobe flash player会有所不同，都有自己支持的版本。所以对应的浏览器打开使用时，你会看到有三个进程的存在。如下图： fnflv封装成一个方法，说不定下次还要使用呢。去到github查看如何使用彩蛋福利，推荐一个好用的工具：格式化工厂需求方提供的视频资源是mp4格式（大概有300M的样子），这时候需要格式化工厂转换下，转成flv的格式，第一次转换，全黑，百度了下格式，原来没有选择正确，调整后，第二次转换，什么，转换后有100M，好像太大了点，后面调整了下输出配置的信息，由高清调整为了中清的样子，视频整体压缩到了60M的样子，这才变成最终我所需要的样子（完结） 小结多积累所见所闻，多动手动脑思考总结。]]></content>
+    <content type="text"><![CDATA[背景临近春节,公司品牌部提出了一个需求，制作一个视频播放宣传页，我是负责pc这块的制作。拿到这个项目需求，在设计还没有出稿之前我先梳理了下这个项目的开发难点和重点。难点？视频制作是头一回接触，并且还要兼容到ie6，7（公司的所有项目都必须兼容到ie6，7），我该如何下手？重点？从需求方描述的文档上来看，其实是一个比较简单的展示页，不涉及任何与后端交互的东西，纯前端的一个页面，开发的功能点也只是包含三部分内容：视频播放、新年祝福语滚动播报、公司旗下移动产品的二维码纯展示。那么可见重点也就是视频的播放功能了。 视频播放功能开发初步考虑开发的几种方案: 使用HTML5的video视频标签开发，使用起来确实是挺方便，but，各个浏览器呈现出的样式一点也不统一（各大浏览器厂商真的是风格各异），需要自己手动开发样式吗？问号脸（貌似开发成本太高了，工期不够用）。pass 使用第三方视频播放器组件，例如：腾讯视频的播放器组件，but，视频播放会自动加载广告，什么鬼（又要骗我买VIP）。pass 使用flashPlayer播放器，就是使用他了（严肃认真脸，内心的小九九，之前公司有和37合作一个联运活动，阅读他们代码的时候，看到他们使用了一个flvplayer.swf播放器，并且可以兼容到ie6，最终呈现到所有的浏览器外形真的是一毛一样啊，还好记录下来，此时有了用武之地，顺便透露下flash将于2020停止更新）。 flashPlayer播放器的使用 先贴上代码 1 分析需要使用一个flvplayer.swf文件 首先说下flv这个视频文件格式，全称 flash Video。是flash播放器所支持的视频文件格式。 参数使用规则，这位同学写的很清楚[http://blog.csdn.net/joyhen/article/details/23001487] 填坑来了 测试提了个bug：bug描述如下 看到这个bug，第一想法是不对呀，浏览器会自动检测并主动触发提示的呀，我不信！然而自己测试验证下来，目前就新版的firefox没有这个自动检测的功能，我想，肯定需要扩展这个adobe flash player组件，真是打脸啊， 新版的火狐浏览器（此时是）没有自动检测是否有安装支持flash播放的插件，并且扩展的组件库里边已经搜索不到任何关于flash的东西了，那么只有用户去主动下载安装火狐版的adobe flash player才可以触发提示用户手动打开flash播放。（送他一首薛之谦的【你还要我怎么样】） 想了下，那么这时代码我需要考虑到一点，先判断当前浏览器存在的flash播放器的版本是多少，存不存在，不存在则引导用户去下载安装，如果存在，但是版本过低，也需要引导用户去升级安装。 来，截图看下效果： 实现的代码片段是： 值得注意的一点是：chrome 、 Firefox、IE 这三巨头浏览器所要支持的adobe flash player会有所不同，都有自己支持的版本。所以对应的浏览器打开使用时，你会看到有三个进程的存在。如下图： fnflv封装成一个方法，说不定下次还要使用呢。去到github查看如何使用彩蛋福利，推荐一个好用的工具：格式化工厂需求方提供的视频资源是mp4格式（大概有300M的样子），这时候需要格式化工厂转换下，转成flv的格式，第一次转换，全黑，百度了下格式，原来没有选择正确，调整后，第二次转换，什么，转换后有100M，好像太大了点，后面调整了下输出配置的信息，由高清调整为了中清的样子，视频整体压缩到了60M的样子，这才变成最终我所需要的样子（完结） 小结多积累所见所闻，多动手动脑思考总结。]]></content>
+      <categories>
+        <category>项目总结</category>
+      </categories>
       <tags>
         <tag>flash</tag>
       </tags>
@@ -12,6 +15,9 @@
     <title><![CDATA[让Windows用户快速上手Git]]></title>
     <url>%2F2017%2F02%2F10%2F%E8%AE%A9Windows%E7%94%A8%E6%88%B7%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8BGit%2F</url>
     <content type="text"><![CDATA[背景喜讯！！公司的版本控制终于由svn转到了git，刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（命令操作实在不符合Windows用户的用户习惯）。 分布式如何理解？举个场景：每个开发人员都有一个本地仓库，即使没有网络也可以提交，查看历史版本记录，创建项目分支等常见操作，等下次网络链接的时候在推送到服务端。总结为一句话就是：git可以不依赖网络对分支和合并等进行操作。 git常用的分支目录git的几个比较重要的分支master、hotfix、develop、feature，这也是我们经常会用到的分支目录。 master：主分支 hotfix：紧急任务分支 base on master develop：开发分支 base on master feature：新功能分支 base on develop bug：bug修复分支 base on develop 有了这些基本的分支结构，当我们在项目开发的过程中，我们就能更加清晰的开发每个版本，每个版本又能不断新增功能，修复bug。 如何使用TortoiseGit工具？1.clone点击右键选择TortoiseGit，选择Git clone 2.create branch点击右键选择TortoiseGit，选择Create Branch…，在Branch框中填写新分支的名称（若选中”switch to new branch”则直接转到新分支上，省略step3），点击OK按钮； ==注意==：在你切换到新分支上会出现一个error，提示“fatal：Not a valid object name:’master’.”OMG~，原来是master分支需要有一次提交，才可以创建新分支。当然你已经从远程服务器上clone下来的repo，已经是一个真正的master分支，所以不会报这个error。 3.通过“Switch/Checkout”切换到新创建的分支上，点击OK 4.merge branch进行分支合并之前我们需要明确哪个分支将要合并到哪个分支，首先通过“Switch/CheckOut”切换到主干分支（如develop分支）,然后通过“Merge”继进行合并操作，在对话框中选择需要合并的分支。分支合并成功后，我们即可以通过Commit与PUSH操作将合并上传到中心服务器 5.delete branch删除分支前先合并分支到主分支上 小结就是让你如此简单的上手~]]></content>
+      <categories>
+        <category>work</category>
+      </categories>
       <tags>
         <tag>Git</tag>
       </tags>
@@ -20,6 +26,9 @@
     <title><![CDATA[hello-word]]></title>
     <url>%2F2017%2F02%2F06%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>others</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
