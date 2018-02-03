@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="背景刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（嘻嘻，就是喜欢，命令操作实在不符合Windows用户的用户习惯）。">
+<meta name="description" content="背景喜讯！！公司的版本控制终于由svn转到了git，刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（命令操作实在不符合Windows用户的用户习惯）。">
 <meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="让Windows用户快速上手Git">
 <meta property="og:url" content="http://luuck.github.io/2017/02/10/让Windows用户快速上手Git/index.html">
 <meta property="og:site_name" content="Lu&#39;Blog">
-<meta property="og:description" content="背景刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（嘻嘻，就是喜欢，命令操作实在不符合Windows用户的用户习惯）。">
+<meta property="og:description" content="背景喜讯！！公司的版本控制终于由svn转到了git，刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（命令操作实在不符合Windows用户的用户习惯）。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/git.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/createbranch.jpg">
@@ -95,10 +95,10 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/mergetomaster.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/deletbranch.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/delbranch.jpg">
-<meta property="og:updated_time" content="2018-02-03T02:09:13.000Z">
+<meta property="og:updated_time" content="2018-02-03T02:50:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="让Windows用户快速上手Git">
-<meta name="twitter:description" content="背景刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（嘻嘻，就是喜欢，命令操作实在不符合Windows用户的用户习惯）。">
+<meta name="twitter:description" content="背景喜讯！！公司的版本控制终于由svn转到了git，刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（命令操作实在不符合Windows用户的用户习惯）。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/git.jpg">
 
 
@@ -349,8 +349,9 @@
       
 
       
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（嘻嘻，就是喜欢，命令操作实在不符合Windows用户的用户习惯）。<br><a id="more"></a></p>
-<p>那么我们该如何使用该工具呢？下面一一介绍，介绍前先提一下Git的几个比较重要的分支master、hotfix、develop、feature，这也是我们经常会用到的分支目录。</p>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>喜讯！！公司的版本控制终于由svn转到了git，刚开始使用Git（分布式版本控制系统），作为Windows用户的使用者，少不了TortoiseGit工具（命令操作实在不符合Windows用户的用户习惯）。<a id="more"></a></p>
+<h3 id="分布式如何理解？"><a href="#分布式如何理解？" class="headerlink" title="分布式如何理解？"></a>分布式如何理解？</h3><p>举个场景：每个开发人员都有一个本地仓库，即使没有网络也可以提交，查看历史版本记录，创建项目分支等常见操作，<br>等下次网络链接的时候在推送到服务端，总结为一句话就是：git可以不依赖网络对分支和合并等进行操作。</p>
+<h3 id="git常用的分支目录"><a href="#git常用的分支目录" class="headerlink" title="git常用的分支目录"></a>git常用的分支目录</h3><p>git的几个比较重要的分支master、hotfix、develop、feature，这也是我们经常会用到的分支目录。</p>
 <ul>
 <li>master：主分支</li>
 <li>hotfix：紧急任务分支 base on master</li>
@@ -360,7 +361,7 @@
 </ul>
 <p>有了这些基本的分支结构，当我们在项目开发的过程中，我们就能更加清晰的开发每个版本，每个版本又能不断新增功能，修复bug。</p>
 <p><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/git.jpg" alt=""></p>
-<h3 id="如何使用TortoiseGit工具"><a href="#如何使用TortoiseGit工具" class="headerlink" title="如何使用TortoiseGit工具"></a>如何使用TortoiseGit工具</h3><h4 id="1-clone"><a href="#1-clone" class="headerlink" title="1.clone"></a>1.clone</h4><p>点击右键选择TortoiseGit，选择Git clone</p>
+<h3 id="如何使用TortoiseGit工具？"><a href="#如何使用TortoiseGit工具？" class="headerlink" title="如何使用TortoiseGit工具？"></a>如何使用TortoiseGit工具？</h3><h4 id="1-clone"><a href="#1-clone" class="headerlink" title="1.clone"></a>1.clone</h4><p>点击右键选择TortoiseGit，选择Git clone</p>
 <h4 id="2-create-branch"><a href="#2-create-branch" class="headerlink" title="2.create branch"></a>2.create branch</h4><p>点击右键选择TortoiseGit，选择Create Branch…，在Branch框中填写新分支的名称（若选中”switch to new branch”则直接转到新分支上，省略step3），点击OK按钮；<br><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/createbranch.jpg" alt=""><br><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/create.jpg" alt=""></p>
 <p><strong>==注意==</strong>：在你切换到新分支上会出现一个error，提示“fatal：Not a valid object name:’master’.”OMG~，原来是master分支需要有一次提交，才可以创建新分支。<br>当然你已经从远程服务器上clone下来的repo，已经是一个真正的master分支，所以不会报这个error。</p>
 <p>3.通过“Switch/Checkout”切换到新创建的分支上，点击OK<br><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/Git/switchGit.jpg" alt=""></p>
@@ -585,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用TortoiseGit工具"><span class="nav-number">2.</span> <span class="nav-text">如何使用TortoiseGit工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-clone"><span class="nav-number">2.1.</span> <span class="nav-text">1.clone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-create-branch"><span class="nav-number">2.2.</span> <span class="nav-text">2.create branch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-merge-branch"><span class="nav-number">2.3.</span> <span class="nav-text">4.merge branch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-delete-branch"><span class="nav-number">2.4.</span> <span class="nav-text">5.delete branch</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式如何理解？"><span class="nav-number">2.</span> <span class="nav-text">分布式如何理解？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git常用的分支目录"><span class="nav-number">3.</span> <span class="nav-text">git常用的分支目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用TortoiseGit工具？"><span class="nav-number">4.</span> <span class="nav-text">如何使用TortoiseGit工具？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-clone"><span class="nav-number">4.1.</span> <span class="nav-text">1.clone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-create-branch"><span class="nav-number">4.2.</span> <span class="nav-text">2.create branch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-merge-branch"><span class="nav-number">4.3.</span> <span class="nav-text">4.merge branch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-delete-branch"><span class="nav-number">4.4.</span> <span class="nav-text">5.delete branch</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">5.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>
