@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -79,17 +79,21 @@
 
 
 
-<meta name="description" content="沉迷于思考，不断去验证，加以总结，得以收获。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Categories">
-<meta property="og:url" content="http://luuck.github.io/categories/index.html">
+<meta name="description" content="背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。公共组件：头部、底部页面组件：banner区域、列表区域 想要直接使用sass，ok吗？no，需要安装node-sass，sass-loader，请参考 fa">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-cli搭建简易个人网站踩坑之旅">
+<meta property="og:url" content="http://luuck.github.io/2018/03/12/vue-cli搭建简易个人网站踩坑之旅/index.html">
 <meta property="og:site_name" content="Lu&#39;Blog">
-<meta property="og:description" content="沉迷于思考，不断去验证，加以总结，得以收获。">
+<meta property="og:description" content="背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。公共组件：头部、底部页面组件：banner区域、列表区域 想要直接使用sass，ok吗？no，需要安装node-sass，sass-loader，请参考 fa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-03T06:22:17.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/vue-cli/favicon.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/vue-cli/div.png">
+<meta property="og:updated_time" content="2018-03-12T15:18:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Categories">
-<meta name="twitter:description" content="沉迷于思考，不断去验证，加以总结，得以收获。">
+<meta name="twitter:title" content="vue-cli搭建简易个人网站踩坑之旅">
+<meta name="twitter:description" content="背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。公共组件：头部、底部页面组件：banner区域、列表区域 想要直接使用sass，ok吗？no，需要安装node-sass，sass-loader，请参考 fa">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/vue-cli/favicon.png">
 
 
 
@@ -119,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://luuck.github.io/categories/"/>
+  <link rel="canonical" href="http://luuck.github.io/2018/03/12/vue-cli搭建简易个人网站踩坑之旅/"/>
 
 
 
 
 
-  <title>Categories | Lu'Blog</title>
+  <title>vue-cli搭建简易个人网站踩坑之旅 | Lu'Blog</title>
   
 
 
@@ -294,42 +298,196 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://luuck.github.io/2018/03/12/vue-cli搭建简易个人网站踩坑之旅/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="luuck">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lu'Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">Categories</h1>
-
-
-
-</header>
-
-
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 4 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/work/">work</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习/">学习</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/年度总结/">年度总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/项目总结/">项目总结</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">vue-cli搭建简易个人网站踩坑之旅</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T22:28:23+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考<a href="https://www.jianshu.com/p/1626b8643676" target="_blank" rel="noopener">查看，堪称史上最全</a></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>页面大体分为4个部分：头部、底部、banner区域、列表区域。<br>公共组件：头部、底部<br>页面组件：banner区域、列表区域</p>
+<h3 id="想要直接使用sass，ok吗？"><a href="#想要直接使用sass，ok吗？" class="headerlink" title="想要直接使用sass，ok吗？"></a>想要直接使用sass，ok吗？</h3><p>no，需要安装node-sass，sass-loader，<a href="https://www.cnblogs.com/wuzhendong/p/8078659.html" target="_blank" rel="noopener">请参考</a></p>
+<h3 id="favicon图片在index-html上引用无效"><a href="#favicon图片在index-html上引用无效" class="headerlink" title="favicon图片在index.html上引用无效"></a>favicon图片在index.html上引用无效</h3><p><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/vue-cli/favicon.png" alt=""></p>
+<h3 id="如何使用css-module？"><a href="#如何使用css-module？" class="headerlink" title="如何使用css module？"></a>如何使用css module？</h3><p>简单说明，css module加入了局部作用域和模块依赖。以往的css都是全局的，对于整个页面都有效，但是会导致对命名规范要求特别高，不然很容易被他<br>人的命名冲突，甚至覆盖。但是css module很好的解决了整个问题，只对当前的组件有效。<a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html" target="_blank" rel="noopener">阮一峰大神css module教程</a></p>
+<h3 id="使用子组件需要使用div或者p包裹起来"><a href="#使用子组件需要使用div或者p包裹起来" class="headerlink" title="使用子组件需要使用div或者p包裹起来"></a>使用子组件需要使用div或者p包裹起来</h3><p><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/vue-cli/div.png" alt=""><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue父子组件嵌套的时候遇到</span></span><br><span class="line"><span class="comment">// Component template should contain exactly one root element. If you are using v-i</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>项目在继续~~待完善总结</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="luuck 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/03/es6学习/" rel="next" title="es6学习">
+                <i class="fa fa-chevron-left"></i> es6学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -338,6 +496,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzcyMS8xMDI3Ng=="></div>
+    </div>
+
+  
+
+
 
 
 
@@ -361,8 +528,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -442,6 +618,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#想要直接使用sass，ok吗？"><span class="nav-number">2.1.</span> <span class="nav-text">想要直接使用sass，ok吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#favicon图片在index-html上引用无效"><span class="nav-number">2.2.</span> <span class="nav-text">favicon图片在index.html上引用无效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用css-module？"><span class="nav-number">2.3.</span> <span class="nav-text">如何使用css module？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用子组件需要使用div或者p包裹起来"><span class="nav-number">2.4.</span> <span class="nav-text">使用子组件需要使用div或者p包裹起来</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -621,6 +813,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
