@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[vue-cli搭建简易个人网站踩坑之旅]]></title>
     <url>%2F2018%2F03%2F12%2Fvue-cli%E6%90%AD%E5%BB%BA%E7%AE%80%E6%98%93%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E8%B8%A9%E5%9D%91%E4%B9%8B%E6%97%85%2F</url>
-    <content type="text"><![CDATA[背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。公共组件：头部、底部页面组件：banner区域、列表区域 想要直接使用sass，ok吗？no，需要安装node-sass，sass-loader，请参考。 favicon图片在index.html上引用无效，如何处理？ 如何使用css module？简单说明，css module加入了局部作用域和模块依赖。以往的css都是全局的，对于整个页面都有效，但是会导致对命名规范要求特别高，不然很容易和他人的命名冲突，甚至覆盖。但是css module很好的解决了整个问题，只对当前的组件有效。阮一峰大神css module教程 使用子组件编译出错？12// vue父子组件嵌套的时候遇到// Component template should contain exactly one root element. If you are using v-i 小结项目在继续~~待完善总结]]></content>
+    <content type="text"><![CDATA[背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全。 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。公共组件：头部、底部页面组件：banner区域、列表区域 想要直接使用sass，ok吗？no，需要安装node-sass，sass-loader，请参考。 favicon图片在index.html上引用无效，如何处理？ 如何使用css module？简单说明，css module加入了局部作用域和模块依赖。以往的css都是全局的，对于整个页面都有效，但是会导致对命名规范要求特别高，不然很容易和他人的命名冲突，甚至覆盖。但是css module很好的解决了整个问题，只对当前的组件有效。阮一峰大神css module教程 使用子组件编译出错？12// vue父子组件嵌套的时候遇到// Component template should contain exactly one root element. If you are using v-i 小结项目在继续~~待完善总结 项目地址]]></content>
       <categories>
         <category>学习</category>
       </categories>

@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。">
+<meta name="description" content="背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全。 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-cli搭建简易个人网站踩坑之旅">
 <meta property="og:url" content="http://luuck.github.io/2018/03/12/vue-cli搭建简易个人网站踩坑之旅/index.html">
 <meta property="og:site_name" content="Lu&#39;Blog">
-<meta property="og:description" content="背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。">
+<meta property="og:description" content="背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全。 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/vue-cli/favicon.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/vue-cli/div.png">
-<meta property="og:updated_time" content="2018-03-12T15:26:02.000Z">
+<meta property="og:updated_time" content="2018-03-12T15:29:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-cli搭建简易个人网站踩坑之旅">
-<meta name="twitter:description" content="背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。">
+<meta name="twitter:description" content="背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全。 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/vue-cli/favicon.png">
 
 
@@ -399,13 +399,14 @@
       
 
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考<a href="https://www.jianshu.com/p/1626b8643676" target="_blank" rel="noopener">查看，堪称史上最全</a></p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考<a href="https://www.jianshu.com/p/1626b8643676" target="_blank" rel="noopener">查看，堪称史上最全</a>。</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>页面大体分为4个部分：头部、底部、banner区域、列表区域。<a id="more"></a><br>公共组件：头部、底部<br>页面组件：banner区域、列表区域</p>
 <h3 id="想要直接使用sass，ok吗？"><a href="#想要直接使用sass，ok吗？" class="headerlink" title="想要直接使用sass，ok吗？"></a>想要直接使用sass，ok吗？</h3><p>no，需要安装node-sass，sass-loader，<a href="https://www.cnblogs.com/wuzhendong/p/8078659.html" target="_blank" rel="noopener">请参考</a>。</p>
 <h3 id="favicon图片在index-html上引用无效，如何处理？"><a href="#favicon图片在index-html上引用无效，如何处理？" class="headerlink" title="favicon图片在index.html上引用无效，如何处理？"></a>favicon图片在index.html上引用无效，如何处理？</h3><p><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/vue-cli/favicon.png" alt=""></p>
 <h3 id="如何使用css-module？"><a href="#如何使用css-module？" class="headerlink" title="如何使用css module？"></a>如何使用css module？</h3><p>简单说明，css module加入了局部作用域和模块依赖。以往的css都是全局的，对于整个页面都有效，但是会导致对命名规范要求特别高，不然很容易和他人的命名冲突，甚至覆盖。但是css module很好的解决了整个问题，只对当前的组件有效。<a href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html" target="_blank" rel="noopener">阮一峰大神css module教程</a></p>
 <h3 id="使用子组件编译出错？"><a href="#使用子组件编译出错？" class="headerlink" title="使用子组件编译出错？"></a>使用子组件编译出错？</h3><p><img src="https://raw.githubusercontent.com/luuck/luuck.github.io/master/images/vue-cli/div.png" alt=""><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue父子组件嵌套的时候遇到</span></span><br><span class="line"><span class="comment">// Component template should contain exactly one root element. If you are using v-i</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>项目在继续~~待完善总结</p>
+<p><a href="https://luuck.github.io/moyuSiteVue/dist/index.html">项目地址</a></p>
 
       
     </div>
