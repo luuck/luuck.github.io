@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[前端构建工具：gulp 和 webpack 你不得不需要了解的几点]]></title>
+    <url>%2F2018%2F08%2F06%2F%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%EF%BC%9Agulp-%E5%92%8C-webpack%2F</url>
+    <content type="text"><![CDATA[前言随着前端日新月异的发展，工程化、自动化已不再是陌生的套路，比如我们所熟悉的sass写样式编译成css、es6写脚本转换成es5、浏览器自动刷新看到效果等等，诸如此类都是交给构建工具来完成，从而避免开发者进行重复的机械劳动（不要太开心，哈哈哈哈）。 什么是构建工具？ 所谓的构建工具就是使源代码可以自动打包、编译、压缩等一系列操作。 讲讲 gulp 和 webpack在当下比较流行的构建工具有gulp和 webpack（hot hot hot…）。 gulp对于gulp的学习，可谓是简单易学、能快速上手。 1.全局安装gulp，安装项目所需要的gulp插件； 12npm i gulp -gnpm i gulp gulp-uglify --save-dev 2.在根目录下创建gulpfile.js； 3.在文件里编写gulp任务；假设压缩js为例： 12345678var gulp = require("gulp");var uglify = require('gulp-uglify');gulp.task('js', function() &#123; gulp.src('src/js/**/*.js') .pipe(uglify()) .pipe(gulp.dest('dist/js'))&#125;);gulp.task('default', ['js']); 4.最后在终端运行这个任务，便可快速输出打包后的文件。 webpackwebpack实现了模块化开发和文件处理，他的思想就是“万物皆为模块”，它能够将各个模块进行按需加载，不会导致加载了无用或冗余的代码。 1.全局安装webpack； 1npm i webpack -g 2.在根目录下创建webpack.config.js； 3.在webpack.config.js 里配置需要的选项，具体可戳官网查看; 123456789const path = require('path');module.exports = &#123; entry: './src/index.js', // 告诉 webpack 你要编译哪个文件 output: &#123; // 告诉 webpack 你要把编译后生成的文件放在哪 filename: 'bundle.js', path: path.join(__dirname, 'dist') &#125;&#125;; 4.最后在终端运行这个任务，便可快速输出打包后的文件。 tr,td{ text-align: left; } table th:first-of-type { width: 80px; } table tb{ text-align: left; } - gulp webpack 定位 基于流的自动化构建工具 模块化打包器 目标 自动化和优化开发工作流 通用模块打包加载器，为移动端大小SPA应运而生 学习难度 api方法简洁，大量使用gulp插件完成任务 有新的概念和api，详尽的官方文档 使用场景 基于流的多页面应用开发 一切皆模块的特点适合单页面开发 缺点 在单页面应用方面输出乏力，而且对流行的单页技术有些难以处理（比如 Vue 单文件组件，使用 gulp 处理就会很困难，而 webpack 一个 loader 就能轻松搞定） 不适合多页应用开发，灵活度高但同时配置很繁琐复杂。“打包一切” 这个优点对于 HTTP/1.1 尤其重要，因为所有资源打包在一起能明显减少浏览器访问页面时的资源请求数量，从而减少应用程序必须等待的时间。但这个优点可能会随着 HTTP/2 的流行而变得不那么突出，因为 HTTP/2 的多路复用可以有效解决客户端并行请求时的瓶颈问题。 小结在前端工程化的解决方案上，这两者都是各自有自己的优缺点的，无论使用哪种方案，都不要盲目，合理的搭配，选择适合当下业务场景所需要的，才能将构建工具的作用发挥得淋漓尽致。 扩展前端构建工具之争——Webpack vs Gulp 谁会被拍死在沙滩上]]></content>
+      <categories>
+        <category>构建工具</category>
+      </categories>
+      <tags>
+        <tag>gulp，webpack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[重构代码之简化条件表达式]]></title>
     <url>%2F2018%2F04%2F09%2F%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81%E4%B9%8B%E7%AE%80%E5%8C%96%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[背景今天介绍重构代码之简化表达式，终身受用~ 优化方案强推以下博文，受益匪浅： 不错的博文1 不错的博文2]]></content>
@@ -25,7 +36,7 @@
   <entry>
     <title><![CDATA[vue-cli搭建简易个人网站踩坑之旅]]></title>
     <url>%2F2018%2F03%2F12%2Fvue-cli%E6%90%AD%E5%BB%BA%E7%AE%80%E6%98%93%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E8%B8%A9%E5%9D%91%E4%B9%8B%E6%97%85%2F</url>
-    <content type="text"><![CDATA[背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全。 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。公共组件：头部、底部页面组件：banner区域、列表区域 想要直接使用sass，ok吗？no，需要安装node-sass，sass-loader，请参考。 favicon图片在index.html上引用无效，如何处理？ 如何使用css module？简单说明，css module加入了局部作用域和模块依赖。以往的css都是全局的，对于整个页面都有效，但是会导致对命名规范要求特别高，不然很容易和他人的命名冲突，甚至覆盖。但是css module很好的解决了整个问题，只对当前的组件有效。阮一峰大神css module教程 使用子组件编译出错？12// vue父子组件嵌套的时候遇到// Component template should contain exactly one root element. If you are using v-i 小结项目在继续~~待完善总结 项目地址]]></content>
+    <content type="text"><![CDATA[背景一直没有机会练手有关vue的项目，但是作为mvvm的框架已经相当主流，记录一次使用vue-cli快速构建个人网站所经历的问题。vue-cli的构建请参考查看，堪称史上最全。 分析页面大体分为4个部分：头部、底部、banner区域、列表区域。公共组件：头部、底部页面组件：banner区域、列表区域 想要直接使用sass，ok吗？no，需要安装node-sass，sass-loader，请参考。 favicon图片在index.html上引用无效，如何处理？ 如何使用css module？简单说明，css module加入了局部作用域和模块依赖。以往的css都是全局的，对于整个页面都有效，但是会导致对命名规范要求特别高，不然很容易和他人的命名冲突，甚至覆盖。但是css module很好的解决了整个问题，只对当前的组件有效。阮一峰大神css module教程 使用子组件编译出错？12// vue父子组件嵌套的时候遇到// Component template should contain exactly one root element. If you are using v-i 小结项目在继续~~待完善总结]]></content>
       <categories>
         <category>vue</category>
       </categories>
